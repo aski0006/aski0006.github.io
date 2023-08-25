@@ -28,7 +28,7 @@
 <meta property="og:description" content="P1094 [NOIP2007 普及组] 纪念品分组">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-25T14:44:22.000Z">
-<meta property="article:modified_time" content="2023-08-25T14:47:35.286Z">
+<meta property="article:modified_time" content="2023-08-25T14:51:50.648Z">
 <meta property="article:author" content="Asaki0019">
 <meta property="article:tag" content="贪心，排序">
 <meta name="twitter:card" content="summary">
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-08-25 22:44:22 / 修改时间：22:47:35" itemprop="dateCreated datePublished" datetime="2023-08-25T22:44:22+08:00">2023-08-25</time>
+              <time title="创建时间：2023-08-25 22:44:22 / 修改时间：22:51:50" itemprop="dateCreated datePublished" datetime="2023-08-25T22:44:22+08:00">2023-08-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,17 +202,17 @@
       
         <h1 id="NOIP2007-普及组-纪念品分组"><a href="#NOIP2007-普及组-纪念品分组" class="headerlink" title="[NOIP2007 普及组] 纪念品分组"></a>[NOIP2007 普及组] 纪念品分组</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>元旦快到了，校学生会让乐乐负责新年晚会的纪念品发放工作。为使得参加晚会的同学所获得 的纪念品价值相对均衡，他要把购来的纪念品根据价格进行分组，但每组最多只能包括两件纪念品， 并且每组纪念品的价格之和不能超过一个给定的整数。为了保证在尽量短的时间内发完所有纪念品，乐乐希望分组的数目最少。</p>
 <p>你的任务是写一个程序，找出所有分组方案中分组数最少的一种，输出最少的分组数目。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>共 $n+2$ 行：</p>
-<p>第一行包括一个整数 $w$，为每组纪念品价格之和的上限。</p>
-<p>第二行为一个整数 $n$，表示购来的纪念品的总件数 $G$。</p>
-<p>第 $3\sim n+2$ 行每行包含一个正整数 $P_i$ 表示所对应纪念品的价格。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>共 <em>n+2</em> 行：</p>
+<p>第一行包括一个整数 <em>w</em>，为每组纪念品价格之和的上限。</p>
+<p>第二行为一个整数 <em>n</em>，表示购来的纪念品的总件数 <em>G</em>。</p>
+<p>第 <em>3\sim n+2</em> 行每行包含一个正整数 <em>P_i</em> 表示所对应纪念品的价格。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个整数，即最少的分组数目。</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">100 </span><br><span class="line">9 </span><br><span class="line">90 </span><br><span class="line">20 </span><br><span class="line">20 </span><br><span class="line">30 </span><br><span class="line">50 </span><br><span class="line">60 </span><br><span class="line">70 </span><br><span class="line">80 </span><br><span class="line">90</span><br></pre></td></tr></table></figure>
 
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
 
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>$50%$ 的数据满足：$1\le n\le15$。</p>
-<p>$100%$ 的数据满足：$1\le n\le3\times10^4$，$80\le w\le200$，$5 \le  P_i  \le  w$。</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p><em>50%</em> 的数据满足：<em>1 ≤ n ≤15</em>。</p>
+<p><em>100%</em> 的数据满足：<em>1 ≤ n ≤3 X 10^4</em>，<em>80 ≤ w ≤200</em>，<em>5  ≤  P_i   ≤  w</em>。</p>
 <hr>
 <p><strong>算法：贪心，排序</strong></p>
 <h3 id="思路：尽可能让小的与大的配对，使用双指针维护一个数组，这个数组存储的便是答案。"><a href="#思路：尽可能让小的与大的配对，使用双指针维护一个数组，这个数组存储的便是答案。" class="headerlink" title="思路：尽可能让小的与大的配对，使用双指针维护一个数组，这个数组存储的便是答案。"></a>思路：尽可能让小的与大的配对，使用双指针维护一个数组，这个数组存储的便是答案。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;array&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>), cout.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="type">int</span> w = <span class="number">0</span>, n = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; w &gt;&gt; n;</span><br><span class="line">    array&lt;<span class="type">int</span>, N&gt;arr;</span><br><span class="line">    arr.<span class="built_in">fill</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;++i)</span><br><span class="line">        cin &gt;&gt; arr[i];</span><br><span class="line">    <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>() + <span class="number">1</span>, arr.<span class="built_in">begin</span>() + n + <span class="number">1</span>, [](<span class="type">const</span> <span class="type">int</span>&amp; a, <span class="type">const</span> <span class="type">int</span>&amp; b) &#123;<span class="keyword">return</span> a &lt; b;&#125;);</span><br><span class="line">    <span class="type">int</span> left = <span class="number">1</span>, right = n;</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[left] + arr[right] &lt;= w) &#123;</span><br><span class="line">            left++, right--, cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            right--, cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
