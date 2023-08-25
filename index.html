@@ -173,7 +173,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-08-25 22:08:50 / 修改时间：22:12:28" itemprop="dateCreated datePublished" datetime="2023-08-25T22:08:50+08:00">2023-08-25</time>
+              <time title="创建时间：2023-08-25 22:08:50 / 修改时间：22:25:44" itemprop="dateCreated datePublished" datetime="2023-08-25T22:08:50+08:00">2023-08-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,14 +208,14 @@
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 1"></a>样例输出 1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2 3</span><br><span class="line">4 2</span><br><span class="line">5 1</span><br><span class="line">100 2</span><br></pre></td></tr></table></figure>
 
 <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ul>
-<li><em>40%</em> 的数据满足：<em>1  \leqslant⩽ \quad\leqslant  n  \leqslant⩽ \quad\leqslant 1000</em>；</li>
-<li><em>80%</em> 的数据满足：<em>1  \leqslant⩽ \quad\leqslant  n  \leqslant⩽ \quad\leqslant  50000</em>；</li>
-<li><em>100%</em> 的数据满足：<em>1  \leqslant⩽ \quad\leqslant n  \leqslant⩽ \quad\leqslant  200000</em>，<br>每个数均不超过 <em>1.5 \times 10^9</em>。</li>
+<li><em>40%</em> 的数据满足：<em>1  &lt;&#x3D;  n  &lt;&#x3D; 1000</em>；</li>
+<li><em>80%</em> 的数据满足：<em>1  &lt;&#x3D;  n  &lt;&#x3D; 50000</em>；</li>
+<li><em>100%</em> 的数据满足：<em>1 &lt;&#x3D;  n  &lt;&#x3D;  200000</em>，<br>每个数均不超过 <em>1.5 X 10^9</em>。</li>
 </ul>
 <p>NOIP 2007 提高第一题</p>
 <hr>
 <p><strong>算法：模拟、排序</strong></p>
-<h3 id="思路：由于数据过大-1-le-n-le-200000-，我们无法使用桶排序。因此我们考虑哈希，使用-map-来进行哈希映射，然后使用-set-集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回-map-中的映射值即可。"><a href="#思路：由于数据过大-1-le-n-le-200000-，我们无法使用桶排序。因此我们考虑哈希，使用-map-来进行哈希映射，然后使用-set-集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回-map-中的映射值即可。" class="headerlink" title="思路：由于数据过大 (1  \le  n  \le  200000) ，我们无法使用桶排序。因此我们考虑哈希，使用 map 来进行哈希映射，然后使用 set 集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回 map 中的映射值即可。"></a>思路：由于数据过大 <em>(1  \le  n  \le  200000)</em> ，我们无法使用桶排序。因此我们考虑哈希，使用 <em>map</em> 来进行哈希映射，然后使用 <em>set</em> 集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回 <em>map</em> 中的映射值即可。</h3><hr>
+<h3 id="思路：由于数据过大-1"><a href="#思路：由于数据过大-1" class="headerlink" title="思路：由于数据过大 (1  &lt;&#x3D;  n  &lt;&#x3D;  200000) ，我们无法使用桶排序。因此我们考虑哈希，使用 map 来进行哈希映射，然后使用 set 集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回 map 中的映射值即可。"></a>思路：由于数据过大 <em>(1  &lt;&#x3D;  n  &lt;&#x3D;  200000)</em> ，我们无法使用桶排序。因此我们考虑哈希，使用 <em>map</em> 来进行哈希映射，然后使用 <em>set</em> 集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回 <em>map</em> 中的映射值即可。</h3><hr>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> n;</span><br><span class="line">    std::cin &gt;&gt; n;</span><br><span class="line">    std::map&lt;<span class="type">long</span> <span class="type">long</span>, <span class="type">int</span>&gt;  m;</span><br><span class="line">    std::set&lt;<span class="type">long</span> <span class="type">long</span>&gt; s;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        std::cin &gt;&gt; num;</span><br><span class="line">        m[num]++;</span><br><span class="line">        s.<span class="built_in">insert</span>(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = s.<span class="built_in">begin</span>();i != s.<span class="built_in">end</span>();i++) &#123;</span><br><span class="line">        std::cout &lt;&lt; *i &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; m[*i] &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
@@ -261,7 +261,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-08-25 22:05:27 / 修改时间：22:08:10" itemprop="dateCreated datePublished" datetime="2023-08-25T22:05:27+08:00">2023-08-25</time>
+              <time title="创建时间：2023-08-25 22:05:27 / 修改时间：22:24:09" itemprop="dateCreated datePublished" datetime="2023-08-25T22:05:27+08:00">2023-08-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,21 +284,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="学生分组"><a href="#学生分组" class="headerlink" title="学生分组"></a>学生分组</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有 <em>n</em> 组学生，给出初始时每组中的学生个数，再给出每组学生人数的上界 <em>R</em> 和下界 *L(L &lt;&#x3D; R)*，每次你可以在某组中选出一个学生把他安排到另外一组中，问最少要多少次才可以使 <em>N</em> 组学生的人数都在 <em>[L,R]</em> 中。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个整数 <em>n</em>，表示学生组数；</p>
-<p>第二行 <em>n</em> 个整数，表示每组的学生个数；</p>
-<p>第三行两个整数 <em>L,R</em>，表示下界和上界。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个数，表示最少的交换次数，如果不能满足题目条件输出 <em>-1</em>。</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 1"></a>样例 1</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">10 20</span><br><span class="line">10 15</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 1"></a>样例输出 1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
-
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><h3 id="数据范围及约定"><a href="#数据范围及约定" class="headerlink" title="数据范围及约定"></a>数据范围及约定</h3><p>对于全部数据，保证 <em>1&lt;&#x3D; n &lt;&#x3D; 50</em>。</p>
-<hr>
-<p><strong>算法：模拟、贪心</strong></p>
-<h3 id="思路：对于输入进来的初始学生组数，我们只需要关注一点，那就是补全即可。因为每次只能移动一人，所以最终的移动次数取决于移动最大的哪一方，即要么缺人，要么多人。而当一开始的所有人数都无法分组时便没有办法分组，因此输出-1-。"><a href="#思路：对于输入进来的初始学生组数，我们只需要关注一点，那就是补全即可。因为每次只能移动一人，所以最终的移动次数取决于移动最大的哪一方，即要么缺人，要么多人。而当一开始的所有人数都无法分组时便没有办法分组，因此输出-1-。" class="headerlink" title="思路：对于输入进来的初始学生组数，我们只需要关注一点，那就是补全即可。因为每次只能移动一人，所以最终的移动次数取决于移动最大的哪一方，即要么缺人，要么多人。而当一开始的所有人数都无法分组时便没有办法分组，因此输出 -1 。"></a>思路：对于输入进来的初始学生组数，我们只需要关注一点，那就是补全即可。因为每次只能移动一人，所以最终的移动次数取决于移动最大的哪一方，即要么缺人，要么多人。而当一开始的所有人数都无法分组时便没有办法分组，因此输出 <em>-1</em> 。</h3><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>, sum = <span class="number">0</span>;</span><br><span class="line">    std::cin &gt;&gt; n;</span><br><span class="line">    <span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : vec) &#123;</span><br><span class="line">        std::cin &gt;&gt; i;</span><br><span class="line">        sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">    std::cin &gt;&gt; left &gt;&gt; right;</span><br><span class="line">    <span class="keyword">if</span> (sum &lt; left * n <span class="keyword">or</span> sum &gt; right * n) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="number">-1</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : vec) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; right) x += i - right;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i &lt; left) y += left - i;</span><br><span class="line">        &#125;</span><br><span class="line">        std::cout &lt;&lt; std::<span class="built_in">max</span>(x, y) &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <p>P1109-学生分组</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/08/25/P1109-%E5%AD%A6%E7%94%9F%E5%88%86%E7%BB%84/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
