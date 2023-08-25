@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="P8597 [蓝桥杯 2013 省 B] 翻硬币">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P8597 [蓝桥杯 2013 省 B] 翻硬币">
+<meta property="og:url" content="http://example.com/2023/08/25/P8597-%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-%E7%9C%81-B-%E7%BF%BB%E7%A1%AC%E5%B8%81/index.html">
+<meta property="og:site_name" content="Asaki0019">
+<meta property="og:description" content="P8597 [蓝桥杯 2013 省 B] 翻硬币">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-25T14:39:16.000Z">
+<meta property="article:modified_time" content="2023-08-25T14:40:02.654Z">
+<meta property="article:author" content="Asaki0019">
+<meta property="article:tag" content="模拟">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/08/25/P8597-%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-%E7%9C%81-B-%E7%BF%BB%E7%A1%AC%E5%B8%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>P8597 [蓝桥杯 2013 省 B] 翻硬币 | Asaki0019</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Asaki0019</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">明日方舟</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/25/P8597-%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-%E7%9C%81-B-%E7%BF%BB%E7%A1%AC%E5%B8%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Asaki0019">
+      <meta itemprop="description" content="原神-启动！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asaki0019">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          P8597 [蓝桥杯 2013 省 B] 翻硬币
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-25 22:39:16 / 修改时间：22:40:02" itemprop="dateCreated datePublished" datetime="2023-08-25T22:39:16+08:00">2023-08-25</time>
+            </span>
+
+          
+            <div class="post-description">P8597 [蓝桥杯 2013 省 B] 翻硬币</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="蓝桥杯-2013-省-B-翻硬币"><a href="#蓝桥杯-2013-省-B-翻硬币" class="headerlink" title="[蓝桥杯 2013 省 B] 翻硬币"></a>[蓝桥杯 2013 省 B] 翻硬币</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>小明正在玩一个“翻硬币”的游戏。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>桌上放着排成一排的若干硬币。我们用 <code>*</code> 表示正面，用 <code>o</code> 表示反面（是小写字母，不是零），比如可能情形是 <code>**oo***oooo</code>，如果同时翻转左边的两个硬币，则变为 <code>oooo***oooo</code>。现在小明的问题是：如果已知了初始状态和要达到的目标状态，每次只能同时翻转相邻的两个硬币，那么对特定的局面，最少要翻动多少次呢？</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>两行等长字符串，分别表示初始状态和要达到的目标状态，每行长度小于 <em>1000</em>。</p>
+<p>数据保证一定存在至少一种方案可以从初始状态和要达到的目标状态。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个整数，表示最小操作步数。</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 1"></a>样例 1</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**********</span><br><span class="line">o****o****</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 1"></a>样例输出 1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h2 id="样例-2"><a href="#样例-2" class="headerlink" title="样例 2"></a>样例 2</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*o**o***o***</span><br><span class="line">*o***o**o***</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出 2"></a>样例输出 2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>source：蓝桥杯 2013 省 B 组 H 题</p>
+<hr>
+<p><strong>算法：模拟</strong></p>
+<h3 id="思路：因为硬币只有两种状态，正面与反面，因此对于每一枚硬币只最多操作一次就可以改变状态，而反转两次等于没有反转。于是我们只需要找到不同的硬币，并将它和它的右边进行翻转即可，然后累加-ans-即可。"><a href="#思路：因为硬币只有两种状态，正面与反面，因此对于每一枚硬币只最多操作一次就可以改变状态，而反转两次等于没有反转。于是我们只需要找到不同的硬币，并将它和它的右边进行翻转即可，然后累加-ans-即可。" class="headerlink" title="思路：因为硬币只有两种状态，正面与反面，因此对于每一枚硬币只最多操作一次就可以改变状态，而反转两次等于没有反转。于是我们只需要找到不同的硬币，并将它和它的右边进行翻转即可，然后累加 ans 即可。"></a>思路：因为硬币只有两种状态，正面与反面，因此对于每一枚硬币只最多操作一次就可以改变状态，而反转两次等于没有反转。于是我们只需要找到不同的硬币，并将它和它的右边进行翻转即可，然后累加 <em>ans</em> 即可。</h3><h4 id="注意，题目已经将两个字符串的长度限定为一样长了"><a href="#注意，题目已经将两个字符串的长度限定为一样长了" class="headerlink" title="注意，题目已经将两个字符串的长度限定为一样长了"></a>注意，题目已经将两个字符串的长度限定为一样长了</h4><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string a, b;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    std::cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; a.<span class="built_in">length</span>();++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != b[i]) &#123;</span><br><span class="line">            a[i] = (a[i] == <span class="string">&#x27;o&#x27;</span> ? <span class="string">&#x27;*&#x27;</span> : <span class="string">&#x27;o&#x27;</span>);</span><br><span class="line">            a[i + <span class="number">1</span>] = (a[i + <span class="number">1</span>] == <span class="string">&#x27;o&#x27;</span> ? <span class="string">&#x27;*&#x27;</span> : <span class="string">&#x27;o&#x27;</span>);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; cnt &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"># 模拟</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/25/P1101-%E5%8D%95%E8%AF%8D%E6%96%B9%E9%98%B5/" rel="prev" title="P1101 单词方阵">
+      <i class="fa fa-chevron-left"></i> P1101 单词方阵
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-%E7%9C%81-B-%E7%BF%BB%E7%A1%AC%E5%B8%81"><span class="nav-number">1.</span> <span class="nav-text">[蓝桥杯 2013 省 B] 翻硬币</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">题目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.5.</span> <span class="nav-text">样例 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">1.5.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">样例输出 1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">1.6.</span> <span class="nav-text">样例 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-2"><span class="nav-number">1.6.2.</span> <span class="nav-text">样例输出 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.7.</span> <span class="nav-text">提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%9B%A0%E4%B8%BA%E7%A1%AC%E5%B8%81%E5%8F%AA%E6%9C%89%E4%B8%A4%E7%A7%8D%E7%8A%B6%E6%80%81%EF%BC%8C%E6%AD%A3%E9%9D%A2%E4%B8%8E%E5%8F%8D%E9%9D%A2%EF%BC%8C%E5%9B%A0%E6%AD%A4%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%80%E6%9E%9A%E7%A1%AC%E5%B8%81%E5%8F%AA%E6%9C%80%E5%A4%9A%E6%93%8D%E4%BD%9C%E4%B8%80%E6%AC%A1%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E7%8A%B6%E6%80%81%EF%BC%8C%E8%80%8C%E5%8F%8D%E8%BD%AC%E4%B8%A4%E6%AC%A1%E7%AD%89%E4%BA%8E%E6%B2%A1%E6%9C%89%E5%8F%8D%E8%BD%AC%E3%80%82%E4%BA%8E%E6%98%AF%E6%88%91%E4%BB%AC%E5%8F%AA%E9%9C%80%E8%A6%81%E6%89%BE%E5%88%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E7%A1%AC%E5%B8%81%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%AE%83%E5%92%8C%E5%AE%83%E7%9A%84%E5%8F%B3%E8%BE%B9%E8%BF%9B%E8%A1%8C%E7%BF%BB%E8%BD%AC%E5%8D%B3%E5%8F%AF%EF%BC%8C%E7%84%B6%E5%90%8E%E7%B4%AF%E5%8A%A0-ans-%E5%8D%B3%E5%8F%AF%E3%80%82"><span class="nav-number">1.7.1.</span> <span class="nav-text">思路：因为硬币只有两种状态，正面与反面，因此对于每一枚硬币只最多操作一次就可以改变状态，而反转两次等于没有反转。于是我们只需要找到不同的硬币，并将它和它的右边进行翻转即可，然后累加 ans 即可。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%8C%E9%A2%98%E7%9B%AE%E5%B7%B2%E7%BB%8F%E5%B0%86%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%95%BF%E5%BA%A6%E9%99%90%E5%AE%9A%E4%B8%BA%E4%B8%80%E6%A0%B7%E9%95%BF%E4%BA%86"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">注意，题目已经将两个字符串的长度限定为一样长了</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Asaki0019</p>
+  <div class="site-description" itemprop="description">原神-启动！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Asaki0019</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
