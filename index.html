@@ -173,7 +173,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-08-25 22:08:50 / 修改时间：22:25:44" itemprop="dateCreated datePublished" datetime="2023-08-25T22:08:50+08:00">2023-08-25</time>
+              <time title="创建时间：2023-08-25 22:08:50 / 修改时间：22:32:43" itemprop="dateCreated datePublished" datetime="2023-08-25T22:08:50+08:00">2023-08-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,28 +196,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="NOIP2007-提高组-统计数字"><a href="#NOIP2007-提高组-统计数字" class="headerlink" title="[NOIP2007 提高组] 统计数字"></a>[NOIP2007 提高组] 统计数字</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p><strong>注意</strong>：数据可能存在加强。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>某次科研调查时得到了 <em>n</em> 个自然数，每个数均不超过 <em>1.5 X 10^9</em>。已知不相同的数不超过 <em>10^4</em> 个，现在需要统计这些自然数各自出现的次数，并按照自然数从小到大的顺序输出统计结果。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>共 <em>n+1</em> 行。</p>
-<p>第一行是整数 <em>n</em>，表示自然数的个数；</p>
-<p>第 <em>2</em> 至 <em>n+1</em> 每行一个自然数。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>共 <em>m</em> 行（<em>m</em> 为 <em>n</em> 个自然数中不相同数的个数），按照自然数从小到大的顺序输出。  </p>
-<p>每行输出 <em>2</em> 个整数，分别是自然数和该数出现的次数，其间用一个空格隔开。</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 1"></a>样例 1</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">100</span><br><span class="line">2</span><br><span class="line">100</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 1"></a>样例输出 1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2 3</span><br><span class="line">4 2</span><br><span class="line">5 1</span><br><span class="line">100 2</span><br></pre></td></tr></table></figure>
-
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ul>
-<li><em>40%</em> 的数据满足：<em>1  &lt;&#x3D;  n  &lt;&#x3D; 1000</em>；</li>
-<li><em>80%</em> 的数据满足：<em>1  &lt;&#x3D;  n  &lt;&#x3D; 50000</em>；</li>
-<li><em>100%</em> 的数据满足：<em>1 &lt;&#x3D;  n  &lt;&#x3D;  200000</em>，<br>每个数均不超过 <em>1.5 X 10^9</em>。</li>
-</ul>
-<p>NOIP 2007 提高第一题</p>
-<hr>
-<p><strong>算法：模拟、排序</strong></p>
-<h3 id="思路：由于数据过大-1"><a href="#思路：由于数据过大-1" class="headerlink" title="思路：由于数据过大 (1  &lt;&#x3D;  n  &lt;&#x3D;  200000) ，我们无法使用桶排序。因此我们考虑哈希，使用 map 来进行哈希映射，然后使用 set 集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回 map 中的映射值即可。"></a>思路：由于数据过大 <em>(1  &lt;&#x3D;  n  &lt;&#x3D;  200000)</em> ，我们无法使用桶排序。因此我们考虑哈希，使用 <em>map</em> 来进行哈希映射，然后使用 <em>set</em> 集合统计唯一的值，接下来我们只需要从集合当中取值，然后返回 <em>map</em> 中的映射值即可。</h3><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> n;</span><br><span class="line">    std::cin &gt;&gt; n;</span><br><span class="line">    std::map&lt;<span class="type">long</span> <span class="type">long</span>, <span class="type">int</span>&gt;  m;</span><br><span class="line">    std::set&lt;<span class="type">long</span> <span class="type">long</span>&gt; s;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        std::cin &gt;&gt; num;</span><br><span class="line">        m[num]++;</span><br><span class="line">        s.<span class="built_in">insert</span>(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = s.<span class="built_in">begin</span>();i != s.<span class="built_in">end</span>();i++) &#123;</span><br><span class="line">        std::cout &lt;&lt; *i &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; m[*i] &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+          <p>P1097 [NOIP2007 提高组] 统计数字</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/08/25/P1097-NOIP2007-%E6%8F%90%E9%AB%98%E7%BB%84-%E7%BB%9F%E8%AE%A1%E6%95%B0%E5%AD%97/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -336,7 +323,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-08-25 21:28:36 / 修改时间：21:58:54" itemprop="dateCreated datePublished" datetime="2023-08-25T21:28:36+08:00">2023-08-25</time>
+              <time title="创建时间：2023-08-25 21:28:36 / 修改时间：22:32:30" itemprop="dateCreated datePublished" datetime="2023-08-25T21:28:36+08:00">2023-08-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -359,7 +346,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>并查集按照时间顺序求最大连通块</p>
+          <p>P1111-车站修复</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/08/25/P1111-%E8%BD%A6%E7%AB%99%E4%BF%AE%E5%A4%8D/">
