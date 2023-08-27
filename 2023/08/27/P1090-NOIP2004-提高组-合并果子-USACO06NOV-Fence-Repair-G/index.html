@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="P1090 [NOIP2004 提高组] 合并果子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P1090 [NOIP2004 提高组] 合并果子 &#x2F; [USACO06NOV] Fence Repair G">
+<meta property="og:url" content="http://example.com/2023/08/27/P1090-NOIP2004-%E6%8F%90%E9%AB%98%E7%BB%84-%E5%90%88%E5%B9%B6%E6%9E%9C%E5%AD%90-USACO06NOV-Fence-Repair-G/index.html">
+<meta property="og:site_name" content="Asaki0019">
+<meta property="og:description" content="P1090 [NOIP2004 提高组] 合并果子">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-27T06:06:44.000Z">
+<meta property="article:modified_time" content="2023-08-27T06:16:49.975Z">
+<meta property="article:author" content="Asaki0019">
+<meta property="article:tag" content="贪心">
+<meta property="article:tag" content="排序">
+<meta property="article:tag" content="堆">
+<meta property="article:tag" content="优先队列">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/08/27/P1090-NOIP2004-%E6%8F%90%E9%AB%98%E7%BB%84-%E5%90%88%E5%B9%B6%E6%9E%9C%E5%AD%90-USACO06NOV-Fence-Repair-G/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>P1090 [NOIP2004 提高组] 合并果子 / [USACO06NOV] Fence Repair G | Asaki0019</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Asaki0019</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">明日方舟</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i>资源</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>档案</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/27/P1090-NOIP2004-%E6%8F%90%E9%AB%98%E7%BB%84-%E5%90%88%E5%B9%B6%E6%9E%9C%E5%AD%90-USACO06NOV-Fence-Repair-G/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-26%20210716.png">
+      <meta itemprop="name" content="Asaki0019">
+      <meta itemprop="description" content="原神-启动！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asaki0019">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          P1090 [NOIP2004 提高组] 合并果子 / [USACO06NOV] Fence Repair G
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-27 14:06:44 / 修改时间：14:16:49" itemprop="dateCreated datePublished" datetime="2023-08-27T14:06:44+08:00">2023-08-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%99%AE%E5%8F%8A-%E6%8F%90%E9%AB%98/" itemprop="url" rel="index"><span itemprop="name">普及/提高-</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">P1090 [NOIP2004 提高组] 合并果子</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="NOIP2004-提高组-合并果子-USACO06NOV-Fence-Repair-G"><a href="#NOIP2004-提高组-合并果子-USACO06NOV-Fence-Repair-G" class="headerlink" title="[NOIP2004 提高组] 合并果子 &#x2F; [USACO06NOV] Fence Repair G"></a>[NOIP2004 提高组] 合并果子 &#x2F; [USACO06NOV] Fence Repair G</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个果园里，多多已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。多多决定把所有的果子合成一堆。</p>
+<p>每一次合并，多多可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。可以看出，所有的果子经过 $n-1$ 次合并之后， 就只剩下一堆了。多多在合并果子时总共消耗的体力等于每次合并所耗体力之和。</p>
+<p>因为还要花大力气把这些果子搬回家，所以多多在合并果子时要尽可能地节省体力。假定每个果子重量都为 $1$ ，并且已知果子的种类 数和每种果子的数目，你的任务是设计出合并的次序方案，使多多耗费的体力最少，并输出这个最小的体力耗费值。</p>
+<p>例如有 $3$ 种果子，数目依次为 $1$ ， $2$ ， $9$ 。可以先将 $1$ 、 $2$ 堆合并，新堆数目为 $3$ ，耗费体力为 $3$ 。接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 $12$ ，耗费体力为 $12$ 。所以多多总共耗费体力 $&#x3D;3+12&#x3D;15$ 。可以证明 $15$ 为最小的体力耗费值。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>共两行。<br>第一行是一个整数 $n(1\leq n\leq 10000)$ ，表示果子的种类数。  </p>
+<p>第二行包含 $n$ 个整数，用空格分隔，第 $i$ 个整数 $a_i(1\leq a_i\leq 20000)$ 是第 $i$ 种果子的数目。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个整数，也就是最小的体力耗费值。输入数据保证这个值小于 $2^{31}$ 。</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 </span><br><span class="line">1 2 9</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">15</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 $30%$ 的数据，保证有 $n \le 1000$：</p>
+<p>对于 $50%$ 的数据，保证有 $n \le 5000$；</p>
+<p>对于全部的数据，保证有 $n \le 10000$。</p>
+<hr>
+<p><strong>算法：优先队列，贪心</strong></p>
+<h3 id="思路：通过样例我们可以知道，我们只有尽可能移动数量少的果堆，我们消耗的体力值最少。为什么呢？因为在这里，我们合并完果子后，那两堆果子会合成成一个更大的数量。"><a href="#思路：通过样例我们可以知道，我们只有尽可能移动数量少的果堆，我们消耗的体力值最少。为什么呢？因为在这里，我们合并完果子后，那两堆果子会合成成一个更大的数量。" class="headerlink" title="思路：通过样例我们可以知道，我们只有尽可能移动数量少的果堆，我们消耗的体力值最少。为什么呢？因为在这里，我们合并完果子后，那两堆果子会合成成一个更大的数量。"></a>思路：通过样例我们可以知道，我们只有尽可能移动数量少的果堆，我们消耗的体力值最少。为什么呢？因为在这里，我们合并完果子后，那两堆果子会合成成一个更大的数量。</h3><h5 id="例如：选择搬运-1-2-得到的为-3-，最后结果为-15-。如果选择-9-2-得到的是-11-，最后得到的为-23-。因此可以得出要排序小的"><a href="#例如：选择搬运-1-2-得到的为-3-，最后结果为-15-。如果选择-9-2-得到的是-11-，最后得到的为-23-。因此可以得出要排序小的" class="headerlink" title="例如：选择搬运  $1,2$  得到的为 $3$ ，最后结果为 $15$ 。如果选择 $9,2$ 得到的是 $11$ ，最后得到的为 $23$ 。因此可以得出要排序小的"></a>例如：选择搬运  $1,2$  得到的为 $3$ ，最后结果为 $15$ 。如果选择 $9,2$ 得到的是 $11$ ，最后得到的为 $23$ 。因此可以得出要排序小的</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束</i>原神启动-------------</div>
+    
+</div>
+   </div>
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"># 贪心</a>
+              <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"># 排序</a>
+              <a href="/tags/%E5%A0%86/" rel="tag"># 堆</a>
+              <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" rel="tag"># 优先队列</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/27/P1076-NOIP2012-%E6%99%AE%E5%8F%8A%E7%BB%84-%E5%AF%BB%E5%AE%9D/" rel="prev" title="P1076 [NOIP2012 普及组] 寻宝">
+      <i class="fa fa-chevron-left"></i> P1076 [NOIP2012 普及组] 寻宝
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NOIP2004-%E6%8F%90%E9%AB%98%E7%BB%84-%E5%90%88%E5%B9%B6%E6%9E%9C%E5%AD%90-USACO06NOV-Fence-Repair-G"><span class="nav-number">1.</span> <span class="nav-text">[NOIP2004 提高组] 合并果子 &#x2F; [USACO06NOV] Fence Repair G</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.4.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.5.</span> <span class="nav-text">提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E9%80%9A%E8%BF%87%E6%A0%B7%E4%BE%8B%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E7%9F%A5%E9%81%93%EF%BC%8C%E6%88%91%E4%BB%AC%E5%8F%AA%E6%9C%89%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%A7%BB%E5%8A%A8%E6%95%B0%E9%87%8F%E5%B0%91%E7%9A%84%E6%9E%9C%E5%A0%86%EF%BC%8C%E6%88%91%E4%BB%AC%E6%B6%88%E8%80%97%E7%9A%84%E4%BD%93%E5%8A%9B%E5%80%BC%E6%9C%80%E5%B0%91%E3%80%82%E4%B8%BA%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F%E5%9B%A0%E4%B8%BA%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%8C%E6%88%91%E4%BB%AC%E5%90%88%E5%B9%B6%E5%AE%8C%E6%9E%9C%E5%AD%90%E5%90%8E%EF%BC%8C%E9%82%A3%E4%B8%A4%E5%A0%86%E6%9E%9C%E5%AD%90%E4%BC%9A%E5%90%88%E6%88%90%E6%88%90%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E7%9A%84%E6%95%B0%E9%87%8F%E3%80%82"><span class="nav-number">1.5.1.</span> <span class="nav-text">思路：通过样例我们可以知道，我们只有尽可能移动数量少的果堆，我们消耗的体力值最少。为什么呢？因为在这里，我们合并完果子后，那两堆果子会合成成一个更大的数量。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%E5%A6%82%EF%BC%9A%E9%80%89%E6%8B%A9%E6%90%AC%E8%BF%90-1-2-%E5%BE%97%E5%88%B0%E7%9A%84%E4%B8%BA-3-%EF%BC%8C%E6%9C%80%E5%90%8E%E7%BB%93%E6%9E%9C%E4%B8%BA-15-%E3%80%82%E5%A6%82%E6%9E%9C%E9%80%89%E6%8B%A9-9-2-%E5%BE%97%E5%88%B0%E7%9A%84%E6%98%AF-11-%EF%BC%8C%E6%9C%80%E5%90%8E%E5%BE%97%E5%88%B0%E7%9A%84%E4%B8%BA-23-%E3%80%82%E5%9B%A0%E6%AD%A4%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%87%BA%E8%A6%81%E6%8E%92%E5%BA%8F%E5%B0%8F%E7%9A%84"><span class="nav-number">1.5.1.0.1.</span> <span class="nav-text">例如：选择搬运  $1,2$  得到的为 $3$ ，最后结果为 $15$ 。如果选择 $9,2$ 得到的是 $11$ ，最后得到的为 $23$ 。因此可以得出要排序小的</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Asaki0019"
+      src="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-26%20210716.png">
+  <p class="site-author-name" itemprop="name">Asaki0019</p>
+  <div class="site-description" itemprop="description">原神-启动！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-08-25. – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Asaki0019</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
