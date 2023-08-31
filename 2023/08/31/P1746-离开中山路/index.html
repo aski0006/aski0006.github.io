@@ -20,21 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="P1106 删数问题">
+  <meta name="description" content="P1746 离开中山路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P1106 删数问题">
-<meta property="og:url" content="http://example.com/2023/08/27/P1106-%E5%88%A0%E6%95%B0%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="P1746 离开中山路">
+<meta property="og:url" content="http://example.com/2023/08/31/P1746-%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%B1%B1%E8%B7%AF/index.html">
 <meta property="og:site_name" content="Asaki0019">
-<meta property="og:description" content="P1106 删数问题">
+<meta property="og:description" content="P1746 离开中山路">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-27T12:44:42.000Z">
-<meta property="article:modified_time" content="2023-08-28T02:40:27.865Z">
+<meta property="article:published_time" content="2023-08-31T02:33:24.000Z">
+<meta property="article:modified_time" content="2023-08-31T02:37:46.926Z">
 <meta property="article:author" content="Asaki0019">
 <meta property="article:tag" content="模拟">
-<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="广度优先搜索">
+<meta property="article:tag" content="队列">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/08/27/P1106-%E5%88%A0%E6%95%B0%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="http://example.com/2023/08/31/P1746-%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%B1%B1%E8%B7%AF/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>P1106 删数问题 | Asaki0019</title>
+  <title>P1746 离开中山路 | Asaki0019</title>
   
 
 
@@ -174,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/27/P1106-%E5%88%A0%E6%95%B0%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/31/P1746-%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%B1%B1%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-26%20210716.png">
@@ -187,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          P1106 删数问题
+          P1746 离开中山路
         </h1>
 
         <div class="post-meta">
@@ -196,16 +197,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-08-27 20:44:42" itemprop="dateCreated datePublished" datetime="2023-08-27T20:44:42+08:00">2023-08-27</time>
+              <time title="创建时间：2023-08-31 10:33:24 / 修改时间：10:37:46" itemprop="dateCreated datePublished" datetime="2023-08-31T10:33:24+08:00">2023-08-31</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-28 10:40:27" itemprop="dateModified" datetime="2023-08-28T10:40:27+08:00">2023-08-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -217,7 +212,7 @@
             </span>
 
           
-            <div class="post-description">P1106 删数问题</div>
+            <div class="post-description">P1746 离开中山路</div>
 
         </div>
       </header>
@@ -228,17 +223,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="删数问题"><a href="#删数问题" class="headerlink" title="删数问题"></a>删数问题</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>键盘输入一个高精度的正整数 <em>N</em>（不超过 <em>250</em> 位），去掉其中任意 <em>k</em> 个数字后剩下的数字按原左右次序将组成一个新的非负整数。编程对给定的 <em>N</em> 和 <em>k</em>，寻找一种方案使得剩下的数字组成的新数最小。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入两行正整数。</p>
-<p>第一行输入一个高精度的正整数 <em>n</em>。</p>
-<p>第二行输入一个正整数 <em>k</em>，表示需要删除的数字个数。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个整数，最后剩下的最小数。</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">175438 </span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+        <h1 id="离开中山路"><a href="#离开中山路" class="headerlink" title="离开中山路"></a>离开中山路</h1><h4 id="链接："><a href="#链接：" class="headerlink" title="链接：&lt;P1746 离开中山路 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)&gt;"></a>链接：&lt;<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1746">P1746 离开中山路 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>&gt;</h4><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>《爱与愁的故事第三弹·shopping》最终章。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>爱与愁大神买完东西后，打算坐车离开中山路。现在爱与愁大神在 $x_1,y_1$ 处，车站在 $x_2,y_2$ 处。现在给出一个 $n \times n(n \le 1000)$ 的地图，$0$ 表示马路，$1$ 表示店铺（不能从店铺穿过），爱与愁大神只能垂直或水平着在马路上行进。爱与愁大神为了节省时间，他要求最短到达目的地距离（每两个相邻坐标间距离为 $1$）。你能帮他解决吗？</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第 $1$ 行包含一个数 $n$。</p>
+<p>第 $2$ 行到第 $n+1$ 行：整个地图描述（$0$ 表示马路，$1$ 表示店铺，注意两个数之间没有空格）。</p>
+<p>第 $n+2$ 行：四个数 $x_1,y_1,x_2,y_2$。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>只有 $1$ 行，即最短到达目的地距离。</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">001</span><br><span class="line">101</span><br><span class="line">100</span><br><span class="line">1 1 3 3</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
 
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 $20%$ 数据，满足 $1\leq n \le 100$。</p>
+<p>对于 $100%$ 数据，满足 $1\leq n \le 1000$。</p>
 <hr>
-<h3 id="思路：首先我们可以分析一下这个样例-175438-我们可以发现删除掉了-7-5-4-8-。也就是说，对于这段数字，我们需要找到高峰然后删除即可。注意，我们要删除前导-0-。"><a href="#思路：首先我们可以分析一下这个样例-175438-我们可以发现删除掉了-7-5-4-8-。也就是说，对于这段数字，我们需要找到高峰然后删除即可。注意，我们要删除前导-0-。" class="headerlink" title="思路：首先我们可以分析一下这个样例  175438  ,我们可以发现删除掉了 7,5,4,8 。也就是说，对于这段数字，我们需要找到高峰然后删除即可。注意，我们要删除前导 0 。"></a>思路：首先我们可以分析一下这个样例  <em>175438</em>  ,我们可以发现删除掉了 <em>7,5,4,8</em> 。也就是说，对于这段数字，我们需要找到高峰然后删除即可。注意，我们要删除前导 <em>0</em> 。</h3><h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string str;</span><br><span class="line">    std::cin &gt;&gt; str;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    std::cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> j;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>;str[j] &lt;= str[j + <span class="number">1</span>];++j);</span><br><span class="line">        str.<span class="built_in">erase</span>(j,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(str[<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span> <span class="keyword">and</span> str.<span class="built_in">length</span>() &gt; <span class="number">1</span>) str.<span class="built_in">erase</span>(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    std::cout &lt;&lt; str &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="思路：找到到达目的地的最短距离很明显可以用-BFS-来做，因为-BFS-的性质，在第一次到达目的地时便得到了我们的最短距离。因此接下来就是掏出板子写了。"><a href="#思路：找到到达目的地的最短距离很明显可以用-BFS-来做，因为-BFS-的性质，在第一次到达目的地时便得到了我们的最短距离。因此接下来就是掏出板子写了。" class="headerlink" title="思路：找到到达目的地的最短距离很明显可以用 BFS 来做，因为 BFS 的性质，在第一次到达目的地时便得到了我们的最短距离。因此接下来就是掏出板子写了。"></a>思路：找到到达目的地的最短距离很明显可以用 <em>BFS</em> 来做，因为 <em>BFS</em> 的性质，在第一次到达目的地时便得到了我们的最短距离。因此接下来就是掏出板子写了。</h3><hr>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -259,7 +258,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"># 模拟</a>
-              <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"># 字符串</a>
+              <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" rel="tag"># 广度优先搜索</a>
+              <a href="/tags/%E9%98%9F%E5%88%97/" rel="tag"># 队列</a>
           </div>
 
         
@@ -268,13 +268,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/08/27/P1102-A-B-%E6%95%B0%E5%AF%B9/" rel="prev" title="P1102 A-B 数对">
-      <i class="fa fa-chevron-left"></i> P1102 A-B 数对
+    <a href="/2023/08/30/P1902-%E5%88%BA%E6%9D%80%E5%A4%A7%E4%BD%BF/" rel="prev" title="P1902 刺杀大使">
+      <i class="fa fa-chevron-left"></i> P1902 刺杀大使
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/08/28/P8602-%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-%E7%9C%81-A-%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" rel="next" title="P8602 [蓝桥杯 2013 省 A] 大臣的旅费">
-      P8602 [蓝桥杯 2013 省 A] 大臣的旅费 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -333,7 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">删数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.4.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E9%A6%96%E5%85%88%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E5%88%86%E6%9E%90%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E6%A0%B7%E4%BE%8B-175438-%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E5%8F%91%E7%8E%B0%E5%88%A0%E9%99%A4%E6%8E%89%E4%BA%86-7-5-4-8-%E3%80%82%E4%B9%9F%E5%B0%B1%E6%98%AF%E8%AF%B4%EF%BC%8C%E5%AF%B9%E4%BA%8E%E8%BF%99%E6%AE%B5%E6%95%B0%E5%AD%97%EF%BC%8C%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E6%89%BE%E5%88%B0%E9%AB%98%E5%B3%B0%E7%84%B6%E5%90%8E%E5%88%A0%E9%99%A4%E5%8D%B3%E5%8F%AF%E3%80%82%E6%B3%A8%E6%84%8F%EF%BC%8C%E6%88%91%E4%BB%AC%E8%A6%81%E5%88%A0%E9%99%A4%E5%89%8D%E5%AF%BC-0-%E3%80%82"><span class="nav-number">1.4.3.</span> <span class="nav-text">思路：首先我们可以分析一下这个样例  175438  ,我们可以发现删除掉了 7,5,4,8 。也就是说，对于这段数字，我们需要找到高峰然后删除即可。注意，我们要删除前导 0 。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.4.4.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%B1%B1%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">离开中山路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">链接：&lt;P1746 离开中山路 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)&gt;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">题目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.5.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.6.</span> <span class="nav-text">提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E6%89%BE%E5%88%B0%E5%88%B0%E8%BE%BE%E7%9B%AE%E7%9A%84%E5%9C%B0%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB%E5%BE%88%E6%98%8E%E6%98%BE%E5%8F%AF%E4%BB%A5%E7%94%A8-BFS-%E6%9D%A5%E5%81%9A%EF%BC%8C%E5%9B%A0%E4%B8%BA-BFS-%E7%9A%84%E6%80%A7%E8%B4%A8%EF%BC%8C%E5%9C%A8%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%88%B0%E8%BE%BE%E7%9B%AE%E7%9A%84%E5%9C%B0%E6%97%B6%E4%BE%BF%E5%BE%97%E5%88%B0%E4%BA%86%E6%88%91%E4%BB%AC%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB%E3%80%82%E5%9B%A0%E6%AD%A4%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%B0%B1%E6%98%AF%E6%8E%8F%E5%87%BA%E6%9D%BF%E5%AD%90%E5%86%99%E4%BA%86%E3%80%82"><span class="nav-number">1.6.1.</span> <span class="nav-text">思路：找到到达目的地的最短距离很明显可以用 BFS 来做，因为 BFS 的性质，在第一次到达目的地时便得到了我们的最短距离。因此接下来就是掏出板子写了。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
