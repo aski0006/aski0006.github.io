@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="敲了一天了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高精度问题">
+<meta property="og:url" content="http://example.com/2023/09/01/p1932-%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Asaki0019">
+<meta property="og:description" content="敲了一天了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-01T10:52:08.000Z">
+<meta property="article:modified_time" content="2023-09-01T11:06:44.492Z">
+<meta property="article:author" content="Asaki0019">
+<meta property="article:tag" content="高精度">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/09/01/p1932-%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>高精度问题 | Asaki0019</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Asaki0019</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">明日方舟</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i>资源</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>档案</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/01/p1932-%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-26%20210716.png">
+      <meta itemprop="name" content="Asaki0019">
+      <meta itemprop="description" content="原神-启动！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asaki0019">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高精度问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-01 18:52:08 / 修改时间：19:06:44" itemprop="dateCreated datePublished" datetime="2023-09-01T18:52:08+08:00">2023-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%99%AE%E5%8F%8A-%E6%8F%90%E9%AB%98/" itemprop="url" rel="index"><span itemprop="name">普及/提高-</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">敲了一天了</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<h1 id="高精度杀手"><a href="#高精度杀手" class="headerlink" title="高精度杀手"></a>高精度杀手</h1><h4 id="链接："><a href="#链接：" class="headerlink" title="链接：&lt;P1932 A+B A-B A*B A&#x2F;B A%B Problem - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)&gt;"></a>链接：&lt;<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1932">P1932 A+B A-B A*B A&#x2F;B A%B Problem - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>&gt;</h4><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>这个题目很新颖吧！！！</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>求A、B的和差积商余！</p>
+<h3 id="由于数据有修改，减法运算结果可能带负号！"><a href="#由于数据有修改，减法运算结果可能带负号！" class="headerlink" title="由于数据有修改，减法运算结果可能带负号！"></a>由于数据有修改，减法运算结果可能带负号！</h3><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>两个数两行</p>
+<p>A<br>B</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>五个数</p>
+<p>和<br>差<br>积<br>商<br>余</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>length(A),length(B)&lt;&#x3D;10^4</p>
+<p>A,B&gt;0<br>每个点3s。</p>
+<hr>
+<h3 id="思路：建议使用-Python"><a href="#思路：建议使用-Python" class="headerlink" title="思路：建议使用 Python"></a>思路：建议使用 <em>Python</em></h3><h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a , b = <span class="built_in">int</span>(<span class="built_in">input</span>()),<span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="built_in">print</span> (a + b)</span><br><span class="line"><span class="built_in">print</span> (a - b)</span><br><span class="line"><span class="built_in">print</span> (a * b)</span><br><span class="line"><span class="built_in">print</span> (a // b)</span><br><span class="line"><span class="built_in">print</span> (a % b)</span><br></pre></td></tr></table></figure>
+
+<h3 id="以下是-C-的重载，但是因为除法是用减法来解决的，并未使用牛顿迭代，因此很慢。"><a href="#以下是-C-的重载，但是因为除法是用减法来解决的，并未使用牛顿迭代，因此很慢。" class="headerlink" title="以下是 C++ 的重载，但是因为除法是用减法来解决的，并未使用牛顿迭代，因此很慢。"></a>以下是 <em>C++</em> 的重载，但是因为除法是用减法来解决的，并未使用牛顿迭代，因此很慢。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BigInteger</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; digits;</span><br><span class="line">    <span class="type">bool</span> isNegative = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">BigInteger</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">BigInteger</span>(<span class="type">long</span> <span class="type">long</span> num) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            isNegative = <span class="literal">true</span>;</span><br><span class="line">            num *= <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (num) &#123;</span><br><span class="line">            digits.<span class="built_in">push_back</span>(num % <span class="number">10</span>);</span><br><span class="line">            num /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">BigInteger</span>(string num) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">            isNegative = <span class="literal">true</span>;</span><br><span class="line">            num.<span class="built_in">erase</span>(num.<span class="built_in">begin</span>());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = num.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isdigit</span>(num[i]))</span><br><span class="line">                digits.<span class="built_in">push_back</span>(num[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>+(BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        BigInteger result;</span><br><span class="line">        <span class="keyword">if</span> (isNegative != other.isNegative) &#123;</span><br><span class="line">            result = *<span class="keyword">this</span> - other;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">max</span>(digits.<span class="built_in">size</span>(), other.digits.<span class="built_in">size</span>()); i++) &#123;</span><br><span class="line">            <span class="type">int</span> sum = carry;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i &lt; digits.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                sum += digits[i];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i &lt; other.digits.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                sum += other.digits[i];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            result.digits.<span class="built_in">push_back</span>(sum % <span class="number">10</span>);</span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            result.digits.<span class="built_in">push_back</span>(carry);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;isNegative &amp;&amp; other.isNegative) result.isNegative = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>-(BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        BigInteger result, a, b;</span><br><span class="line">        <span class="type">bool</span> isreverse = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (isNegative == <span class="literal">false</span> <span class="keyword">and</span> other.isNegative == <span class="literal">false</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (*<span class="keyword">this</span> &gt;= other) &#123;</span><br><span class="line">                a = *<span class="keyword">this</span>;</span><br><span class="line">                b = other;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                a = other;</span><br><span class="line">                b = *<span class="keyword">this</span>;</span><br><span class="line">                isreverse = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (isNegative == <span class="literal">true</span> &amp;&amp; other.isNegative == <span class="literal">true</span>) &#123;</span><br><span class="line">            other.isNegative = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (*<span class="keyword">this</span> &gt;= other) &#123;</span><br><span class="line">                a = *<span class="keyword">this</span>;</span><br><span class="line">                b = other;</span><br><span class="line">                isreverse = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                a = other;</span><br><span class="line">                b = *<span class="keyword">this</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (isNegative == <span class="literal">false</span> <span class="keyword">and</span> other.isNegative == <span class="literal">true</span>) &#123;</span><br><span class="line">            other.isNegative = <span class="literal">false</span>;</span><br><span class="line">            result = *<span class="keyword">this</span> + other;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (isNegative == <span class="literal">true</span> <span class="keyword">and</span> other.isNegative == <span class="literal">false</span>) &#123;</span><br><span class="line">            other.isNegative = <span class="literal">true</span>;</span><br><span class="line">            result = *<span class="keyword">this</span> + other;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> borrow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; a.digits.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> diff = a.digits[i] - borrow;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; b.digits.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                diff -= b.digits[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (diff &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                diff += <span class="number">10</span>;</span><br><span class="line">                borrow = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                borrow = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            result.digits.<span class="built_in">push_back</span>(diff);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (result.digits.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; result.digits.<span class="built_in">back</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            result.digits.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (isreverse) result.isNegative = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>*(BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        BigInteger result;</span><br><span class="line">        <span class="type">bool</span> sign = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (isNegative != other.isNegative) sign = <span class="literal">true</span>;</span><br><span class="line">        result.digits.<span class="built_in">resize</span>(digits.<span class="built_in">size</span>() + other.digits.<span class="built_in">size</span>(), <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; digits.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> carry = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; other.digits.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="type">int</span> product = digits[i] * other.digits[j] + carry + result.digits[i + j];</span><br><span class="line">                result.digits[i + j] = product % <span class="number">10</span>;</span><br><span class="line">                carry = product / <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                result.digits[i + other.digits.<span class="built_in">size</span>()] += carry;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (result.digits.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; result.digits.<span class="built_in">back</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            result.digits.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sign) result.isNegative = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>*(<span class="type">int</span> num) <span class="type">const</span> &#123;</span><br><span class="line">        BigInteger zero = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">0</span> || *<span class="keyword">this</span> == zero) <span class="keyword">return</span> zero;</span><br><span class="line">        <span class="type">bool</span> sign = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (isNegative == <span class="literal">true</span> || num &lt; <span class="number">0</span> &amp;&amp; isNegative != (num &lt; <span class="number">0</span>)) sign = <span class="literal">true</span>;</span><br><span class="line">        BigInteger result;</span><br><span class="line">        <span class="type">int</span> carry = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; digits.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> product = digits[i] * num + carry;</span><br><span class="line">            result.digits.<span class="built_in">push_back</span>(product % <span class="number">10</span>);</span><br><span class="line">            carry = product / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            result.digits.<span class="built_in">push_back</span>(carry % <span class="number">10</span>);</span><br><span class="line">            carry /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sign) result.isNegative = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>/(BigInteger other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="type">bool</span> sign = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (isNegative || other.isNegative &amp;&amp; isNegative != other.isNegative) sign = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (other == <span class="number">0</span>) <span class="keyword">throw</span> <span class="string">&quot;Division by zero&quot;</span>;</span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> mod = <span class="number">0</span>;</span><br><span class="line">        BigInteger result; </span><br><span class="line">        BigInteger divisor = *<span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">if</span> (divisor &lt; other) result.digits.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (divisor == other) result.digits.<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">while</span> (divisor &gt; other) &#123;</span><br><span class="line">            BigInteger temp = divisor.digits[divisor.digits.<span class="built_in">size</span>() - <span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> length = divisor.digits.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (temp &lt; other) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (length - i - <span class="number">1</span> &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        BigInteger base = divisor.digits[length - i - <span class="number">1</span>];</span><br><span class="line">                        temp = temp * <span class="number">10</span> + base;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">throw</span> <span class="string">&quot;Division by zero&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (temp &gt;= other) &#123;</span><br><span class="line">                temp = temp - other;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">            result.digits.<span class="built_in">push_back</span>(num);</span><br><span class="line">            <span class="type">int</span> ten = <span class="built_in">pow</span>(<span class="number">10</span>, length - i);</span><br><span class="line">            BigInteger div = other * num;</span><br><span class="line">            div = div * ten;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            divisor = divisor - div;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(result.digits.<span class="built_in">begin</span>(), result.digits.<span class="built_in">end</span>());</span><br><span class="line">        result.isNegative = sign;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>%(BigInteger&amp; other)<span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (isNegative == other.isNegative &amp;&amp; isNegative) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="string">&quot;负数没有mod&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (other == <span class="number">0</span>) <span class="keyword">throw</span> <span class="string">&quot;Division by zero&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="function">BigInteger <span class="title">mod</span><span class="params">(<span class="string">&quot;0&quot;</span>)</span></span>;</span><br><span class="line">        BigInteger result;</span><br><span class="line">        BigInteger divisor = *<span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">if</span> (divisor == other) &#123;</span><br><span class="line">            <span class="keyword">return</span> mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (divisor &lt; other) &#123;</span><br><span class="line">            <span class="keyword">return</span> divisor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (divisor &gt; other) &#123;</span><br><span class="line">            BigInteger temp = divisor.digits[divisor.digits.<span class="built_in">size</span>() - <span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> length = divisor.digits.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (temp &lt; other) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (length - i - <span class="number">1</span> &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        BigInteger base = divisor.digits[length - i - <span class="number">1</span>];</span><br><span class="line">                        temp = temp * <span class="number">10</span> + base;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">throw</span> <span class="string">&quot;Division by zero&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (temp &gt;= other) &#123;</span><br><span class="line">                temp = temp - other;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> ten = <span class="built_in">pow</span>(<span class="number">10</span>, length - i);</span><br><span class="line">            BigInteger div = other * num;</span><br><span class="line">            div = div * ten;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            divisor = divisor - div;</span><br><span class="line">        &#125;</span><br><span class="line">        mod = divisor;</span><br><span class="line">        <span class="keyword">return</span> mod;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>++(<span class="type">int</span>) &#123;</span><br><span class="line">        <span class="function">BigInteger <span class="title">one</span><span class="params">(<span class="string">&quot;1&quot;</span>)</span></span>;</span><br><span class="line">        *<span class="keyword">this</span> = *<span class="keyword">this</span> + one;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BigInteger <span class="keyword">operator</span>--(<span class="type">int</span>) &#123;</span><br><span class="line">        <span class="function">BigInteger <span class="title">one</span><span class="params">(<span class="string">&quot;1&quot;</span>)</span></span>;</span><br><span class="line">        *<span class="keyword">this</span> = *<span class="keyword">this</span> - one;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&gt;=(<span class="type">const</span> BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (digits.<span class="built_in">size</span>() &gt; other.digits.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (digits.<span class="built_in">size</span>() &lt; other.digits.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = digits.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (digits[i] &gt; other.digits[i]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (digits[i] &lt; other.digits[i]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt;=(<span class="type">const</span> BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> other &gt;= *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> !(*<span class="keyword">this</span> &lt;= other);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> !(*<span class="keyword">this</span> &gt;= other);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>==(<span class="type">const</span> BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> digits == other.digits;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>!=(<span class="type">const</span> BigInteger&amp; other) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> !(*<span class="keyword">this</span> == other);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="type">const</span> BigInteger&amp; num) &#123;</span><br><span class="line">        <span class="keyword">if</span> (num.isNegative)</span><br><span class="line">            os &lt;&lt; <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = num.digits.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            os &lt;&lt; num.digits[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> os;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span> istream&amp; <span class="keyword">operator</span>&gt;&gt;(istream&amp; is, BigInteger&amp; num) &#123;</span><br><span class="line">        string str;</span><br><span class="line">        is &gt;&gt; str;</span><br><span class="line">        <span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>) num.isNegative = <span class="literal">true</span>;</span><br><span class="line">        num.digits.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = str.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isdigit</span>(str[i]))</span><br><span class="line">                num.digits.<span class="built_in">push_back</span>(str[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> is;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    BigInteger num1, num2;</span><br><span class="line">    cin &gt;&gt; num1 &gt;&gt; num2;</span><br><span class="line">    cout &lt;&lt; num1 + num2 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; num1 - num2 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; num1 * num2 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; num1 / num2 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; num1 % num2 &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束</i>原神启动-------------</div>
+    
+</div>
+   </div>
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/" rel="tag"># 高精度</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/31/P1746-%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%B1%B1%E8%B7%AF/" rel="prev" title="P1746 离开中山路">
+      <i class="fa fa-chevron-left"></i> P1746 离开中山路
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/02/P1071-NOIP2009-%E6%8F%90%E9%AB%98%E7%BB%84-%E6%BD%9C%E4%BC%8F%E8%80%85/" rel="next" title="P1071 [NOIP2009 提高组] 潜伏者">
+      P1071 [NOIP2009 提高组] 潜伏者 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%9D%80%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">高精度杀手</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">链接：&lt;P1932 A+B A-B A*B A&#x2F;B A%B Problem - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)&gt;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">题目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E4%BA%8E%E6%95%B0%E6%8D%AE%E6%9C%89%E4%BF%AE%E6%94%B9%EF%BC%8C%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%83%BD%E5%B8%A6%E8%B4%9F%E5%8F%B7%EF%BC%81"><span class="nav-number">1.2.1.</span> <span class="nav-text">由于数据有修改，减法运算结果可能带负号！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.5.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.6.</span> <span class="nav-text">提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8-Python"><span class="nav-number">1.6.1.</span> <span class="nav-text">思路：建议使用 Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF-C-%E7%9A%84%E9%87%8D%E8%BD%BD%EF%BC%8C%E4%BD%86%E6%98%AF%E5%9B%A0%E4%B8%BA%E9%99%A4%E6%B3%95%E6%98%AF%E7%94%A8%E5%87%8F%E6%B3%95%E6%9D%A5%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%8C%E5%B9%B6%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%EF%BC%8C%E5%9B%A0%E6%AD%A4%E5%BE%88%E6%85%A2%E3%80%82"><span class="nav-number">1.6.3.</span> <span class="nav-text">以下是 C++ 的重载，但是因为除法是用减法来解决的，并未使用牛顿迭代，因此很慢。</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Asaki0019"
+      src="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-26%20210716.png">
+  <p class="site-author-name" itemprop="name">Asaki0019</p>
+  <div class="site-description" itemprop="description">原神-启动！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-08-25. – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Asaki0019</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
