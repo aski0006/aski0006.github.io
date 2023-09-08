@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="P8680 [蓝桥杯 2019 省 B] 特别数的和">
+  <meta name="description" content="P1996 约瑟夫问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P8680 [蓝桥杯 2019 省 B] 特别数的和">
-<meta property="og:url" content="http://example.com/2023/08/26/P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C/index.html">
+<meta property="og:title" content="P1996 约瑟夫问题">
+<meta property="og:url" content="http://example.com/2023/09/08/P1996-%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Asaki0019">
-<meta property="og:description" content="P8680 [蓝桥杯 2019 省 B] 特别数的和">
+<meta property="og:description" content="P1996 约瑟夫问题">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-25T16:06:27.000Z">
-<meta property="article:modified_time" content="2023-08-25T16:07:49.235Z">
+<meta property="article:published_time" content="2023-09-08T14:54:52.000Z">
+<meta property="article:modified_time" content="2023-09-08T14:57:12.897Z">
 <meta property="article:author" content="Asaki0019">
 <meta property="article:tag" content="模拟">
+<meta property="article:tag" content="队列">
+<meta property="article:tag" content="树状数组">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/08/26/P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C/">
+<link rel="canonical" href="http://example.com/2023/09/08/P1996-%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>P8680 [蓝桥杯 2019 省 B] 特别数的和 | Asaki0019</title>
+  <title>P1996 约瑟夫问题 | Asaki0019</title>
   
 
 
@@ -173,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/26/P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/08/P1996-%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-07-26%20210716.png">
@@ -186,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          P8680 [蓝桥杯 2019 省 B] 特别数的和
+          P1996 约瑟夫问题
         </h1>
 
         <div class="post-meta">
@@ -197,7 +199,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-08-26 00:06:27 / 修改时间：00:07:49" itemprop="dateCreated datePublished" datetime="2023-08-26T00:06:27+08:00">2023-08-26</time>
+              <time title="创建时间：2023-09-08 22:54:52 / 修改时间：22:57:12" itemprop="dateCreated datePublished" datetime="2023-09-08T22:54:52+08:00">2023-09-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -205,12 +207,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+                  <a href="/categories/%E6%99%AE%E5%8F%8A/" itemprop="url" rel="index"><span itemprop="name">普及-</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">P8680 [蓝桥杯 2019 省 B] 特别数的和</div>
+            <div class="post-description">P1996 约瑟夫问题</div>
 
         </div>
       </header>
@@ -221,22 +223,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="蓝桥杯-2019-省-B-特别数的和"><a href="#蓝桥杯-2019-省-B-特别数的和" class="headerlink" title="[蓝桥杯 2019 省 B] 特别数的和"></a>[蓝桥杯 2019 省 B] 特别数的和</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>小明对数位中含有 <em>2</em>、<em>0</em>、<em>1</em>、<em>9</em> 的数字很感兴趣（不包括前导 <em>0</em>），在 <em>1</em> 到 <em>40</em> 中这样的数包括 <em>1</em>、<em>2</em>、<em>9</em>、<em>10</em> 至 <em>32</em>、<em>39</em> 和 <em>40</em>，共 <em>28</em> 个，他们的和是 <em>574</em>。</p>
-<p>请问，在 <em>1</em> 到 <em>n</em> 中，所有这样的数的和是多少？</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入一行包含一个整数 <em>n</em>。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行，包含一个整数，表示满足条件的数的和。</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">40</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">574</span><br></pre></td></tr></table></figure>
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 <em>20%</em> 的评测用例，<em>1  ≤  n  ≤  10</em>。</p>
-<p>对于 <em>50%</em> 的评测用例，<em>1  ≤  n  ≤  100</em>。</p>
-<p>对于 <em>80%</em> 的评测用例，<em>1  ≤  n  ≤  1000</em>。</p>
-<p>对于所有评测用例，<em>1  ≤  n  ≤  10000</em>。</p>
-<p>蓝桥杯 2019 省赛 B 组 F 题。</p>
-<hr>
-<p><strong>算法：模拟</strong></p>
-<h3 id="思路：枚举从-1-到-n-的每个数，对每个数获得它的位数，如果这个位数符合题目的特别的数，便直接返回，并对结果进行累加"><a href="#思路：枚举从-1-到-n-的每个数，对每个数获得它的位数，如果这个位数符合题目的特别的数，便直接返回，并对结果进行累加" class="headerlink" title="思路：枚举从 1 到 n  的每个数，对每个数获得它的位数，如果这个位数符合题目的特别的数，便直接返回，并对结果进行累加"></a>思路：枚举从 <em>1</em> 到 <em>n</em>  的每个数，对每个数获得它的位数，如果这个位数符合题目的特别的数，便直接返回，并对结果进行累加</h3><hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">10</span> == <span class="number">1</span> <span class="keyword">or</span> n % <span class="number">10</span> == <span class="number">0</span> <span class="keyword">or</span> n % <span class="number">10</span> == <span class="number">2</span> <span class="keyword">or</span> n % <span class="number">10</span> == <span class="number">9</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        n /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>, sum = <span class="number">0</span>;</span><br><span class="line">    std::cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(i)) sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; sum &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="约瑟夫问题"><a href="#约瑟夫问题" class="headerlink" title="约瑟夫问题"></a>约瑟夫问题</h1><h4 id="链接：https-www-luogu-com-cn-problem-P1996"><a href="#链接：https-www-luogu-com-cn-problem-P1996" class="headerlink" title="链接：https://www.luogu.com.cn/problem/P1996"></a>链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1996">https://www.luogu.com.cn/problem/P1996</a></h4><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>$n$ 个人围成一圈，从第一个人开始报数,数到 $m$ 的人出列，再由下一个人重新从 $1$ 开始报数，数到 $m$ 的人再出圈，依次类推，直到所有的人都出圈，请输出依次出圈人的编号。</p>
+<p><strong>注意：本题和《深入浅出-基础篇》上例题的表述稍有不同。书上表述是给出淘汰 $n-1$ 名小朋友，而该题是全部出圈。</strong></p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入两个整数 $n,m$。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行 $n$ 个整数，按顺序输出每个出圈人的编号。</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 3</span><br></pre></td></tr></table></figure>
 
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 6 9 2 7 1 8 5 10 4</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>$1 \le m, n \le 100$</p>
+<hr>
+<h3 id="思路：依据题意使用队列模拟即可。"><a href="#思路：依据题意使用队列模拟即可。" class="headerlink" title="思路：依据题意使用队列模拟即可。"></a>思路：依据题意使用队列模拟即可。</h3><hr>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>, m = <span class="number">0</span>;</span><br><span class="line">    std::cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    std::queue&lt;<span class="type">int</span>&gt; que;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        que.<span class="built_in">push</span>(i);</span><br><span class="line">    <span class="keyword">while</span> (!que.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; m;++i) &#123;</span><br><span class="line">            <span class="type">int</span> temp = que.<span class="built_in">front</span>();</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line">            que.<span class="built_in">push</span>(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        std::cout &lt;&lt; que.<span class="built_in">front</span>() &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        que.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -256,6 +254,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"># 模拟</a>
+              <a href="/tags/%E9%98%9F%E5%88%97/" rel="tag"># 队列</a>
+              <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag"># 树状数组</a>
           </div>
 
         
@@ -264,13 +264,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/08/25/P1087-NOIP2004-%E6%99%AE%E5%8F%8A%E7%BB%84-FBI-%E6%A0%91/" rel="prev" title="P1087 [NOIP2004 普及组] FBI 树">
-      <i class="fa fa-chevron-left"></i> P1087 [NOIP2004 普及组] FBI 树
+    <a href="/2023/09/07/P1540-NOIP2010-%E6%8F%90%E9%AB%98%E7%BB%84-%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91/" rel="prev" title="P1540 [NOIP2010 提高组] 机器翻译">
+      <i class="fa fa-chevron-left"></i> P1540 [NOIP2010 提高组] 机器翻译
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/08/26/P8717-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E7%9C%81-AB2-%E6%88%90%E7%BB%A9%E5%88%86%E6%9E%90/" rel="next" title="P8717 [蓝桥杯 2020 省 AB2] 成绩分析">
-      P8717 [蓝桥杯 2020 省 AB2] 成绩分析 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -329,7 +326,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C"><span class="nav-number">1.</span> <span class="nav-text">[蓝桥杯 2019 省 B] 特别数的和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.5.</span> <span class="nav-text">提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E6%9E%9A%E4%B8%BE%E4%BB%8E-1-%E5%88%B0-n-%E7%9A%84%E6%AF%8F%E4%B8%AA%E6%95%B0%EF%BC%8C%E5%AF%B9%E6%AF%8F%E4%B8%AA%E6%95%B0%E8%8E%B7%E5%BE%97%E5%AE%83%E7%9A%84%E4%BD%8D%E6%95%B0%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%BF%99%E4%B8%AA%E4%BD%8D%E6%95%B0%E7%AC%A6%E5%90%88%E9%A2%98%E7%9B%AE%E7%9A%84%E7%89%B9%E5%88%AB%E7%9A%84%E6%95%B0%EF%BC%8C%E4%BE%BF%E7%9B%B4%E6%8E%A5%E8%BF%94%E5%9B%9E%EF%BC%8C%E5%B9%B6%E5%AF%B9%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E7%B4%AF%E5%8A%A0"><span class="nav-number">1.5.1.</span> <span class="nav-text">思路：枚举从 1 到 n  的每个数，对每个数获得它的位数，如果这个位数符合题目的特别的数，便直接返回，并对结果进行累加</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">约瑟夫问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%EF%BC%9Ahttps-www-luogu-com-cn-problem-P1996"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">链接：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P1996</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.4.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.5.</span> <span class="nav-text">提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E4%BE%9D%E6%8D%AE%E9%A2%98%E6%84%8F%E4%BD%BF%E7%94%A8%E9%98%9F%E5%88%97%E6%A8%A1%E6%8B%9F%E5%8D%B3%E5%8F%AF%E3%80%82"><span class="nav-number">1.5.1.</span> <span class="nav-text">思路：依据题意使用队列模拟即可。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">1.5.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
